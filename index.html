@@ -118,7 +118,7 @@ header{
   background:var(--card2);
   border-radius:999px;
   font-size:14px;
-  color: var(--text); /* 👈 CORRIGE O TEXTO INVISÍVEL */
+  color: var(--text); 
 }
 
 
@@ -168,11 +168,15 @@ h2{font-size:36px;margin-bottom:10px}
 
 .gallery-track img{
   min-width:240px;
+  max-width:240px;      
+  height:160px;       
+  object-fit:cover;     
   border-radius:16px;
   border:1px solid var(--border);
   cursor:pointer;
   transition:.3s;
 }
+
 
 .gallery-track img:hover{
   transform:scale(1.04);
@@ -209,7 +213,7 @@ input,textarea{
 }
 textarea{
   resize:none;
-  margin-top:14px; /* 👈 ESPAÇAMENTO ENTRE NOME E MENSAGEM */
+  margin-top:14px; 
 }
 
 /* ================== FOOTER ================== */
@@ -372,4 +376,5 @@ function enviarWhats(e){
 
 </body>
 </html>
+
 
