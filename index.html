@@ -207,6 +207,34 @@ footer{
   border-top:1px solid var(--border);
 }
 
+.cert-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:26px;
+  text-align:center;
+  transition:.3s;
+}
+.cert-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 50px rgba(0,0,0,.4);
+}
+.cert-icon{
+  font-size:40px;
+  margin-bottom:10px;
+}
+.cert-card h4{
+  margin:8px 0 4px;
+}
+.cert-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+
+
+  
+
 /* ================== RESPONSIVE ================== */
 @media(max-width:900px){
   .hero,.grid3,.contact{grid-template-columns:1fr}
@@ -290,13 +318,25 @@ footer{
   <p class="subtitle">Cursos, formações e especializações</p>
 
   <div class="gallery">
-    <!-- Substitua as imagens pelos seus certificados -->
-    <img src="https://via.placeholder.com/600x420?text=Certificado+1">
-    <img src="https://via.placeholder.com/600x420?text=Certificado+2">
-    <img src="https://via.placeholder.com/600x420?text=Certificado+3">
-    <img src="https://via.placeholder.com/600x420?text=Certificado+4">
+    
+    <a href="certificados/2QM6QYMR.pdf" target="_blank" class="cert-card">
+      <div class="cert-icon">📄</div>
+     
+    </a>
+
+    <a href="certificados/73B4649D.pdf" target="_blank" class="cert-card">
+      <div class="cert-icon">📄</div>
+     
+    </a>
+
+    <a href="certificados/8GDEJZ6H.pdf" target="_blank" class="cert-card">
+      <div class="cert-icon">📄</div>
+    
+    </a>
+
   </div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills">
@@ -360,3 +400,4 @@ function enviarWhats(e){
 
 </body>
 </html>
+
