@@ -230,6 +230,129 @@ footer{
   .hero,.grid3,.contact{grid-template-columns:1fr}
   .hero h1{font-size:40px}
 }
+
+
+/* ================== MICRO INTERAÇÕES MODERNAS ================== */
+
+/* BOTÕES */
+.btn{
+  position:relative;
+  overflow:hidden;
+  transition: 
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(79,209,197,.35);
+  filter:brightness(1.1);
+}
+
+.btn:active{
+  transform:translateY(0);
+  box-shadow:0 6px 16px rgba(0,0,0,.4);
+}
+
+/* MENU NAVBAR */
+.menu a{
+  transition:color .25s ease;
+}
+
+.menu a:hover{
+  color:#fff;
+}
+
+/* CARDS (PROJETOS / CONTATO / PERFIL) */
+.card{
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.card:hover{
+  border-color:rgba(79,209,197,.4);
+}
+
+/* HERO CARD DE PERFIL */
+.heroCard:hover{
+  border-color:rgba(124,92,255,.45);
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+/* TAGS (Node.js, Linux etc) */
+.tags span{
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.tags span:hover{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+
+/* CERTIFICADOS */
+.gallery-track img{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    filter .35s ease;
+}
+
+.gallery-track img:hover{
+  filter:brightness(1.05);
+}
+
+/* INPUTS E TEXTAREA */
+input, textarea{
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+input:focus, textarea:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 2px rgba(79,209,197,.25);
+  background:#0f1526;
+}
+
+/* LINKS DE PROJETO */
+.project a{
+  position:relative;
+  transition:color .25s ease;
+}
+
+.project a::after{
+  content:"→";
+  margin-left:6px;
+  opacity:0;
+  transition:.25s;
+}
+
+.project a:hover{
+  color:#fff;
+}
+
+.project a:hover::after{
+  opacity:1;
+}
+
+/* FOOTER SUAVE */
+footer{
+  backdrop-filter:blur(6px);
+}
+
+
+
+  
 </style>
 </head>
 
@@ -376,5 +499,6 @@ function enviarWhats(e){
 
 </body>
 </html>
+
 
 
