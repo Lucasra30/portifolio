@@ -35,7 +35,7 @@ body{
     linear-gradient(180deg,#0b0e14,#090b10);
 }
 a{text-decoration:none;color:inherit}
-.wrap{max-width:var(--max);margin:auto;padding:28px}
+.wrap{max-width:var(--max);margin:auto;padding:5px }
 
 /* ================== NAVBAR ================== */
 header{
@@ -54,6 +54,7 @@ header{
 .logo{
   font-weight:700;
   font-size:20px;
+  letter-spacing:.5px;
 }
 .menu{
   display:flex;
@@ -61,6 +62,7 @@ header{
 }
 .menu a{
   color:var(--muted);
+  font-weight:500;
   position:relative;
 }
 .menu a::after{
@@ -76,7 +78,7 @@ header{
 .menu a:hover{color:var(--text)}
 .menu a:hover::after{width:100%}
 .btn{
-  padding:12px 18px;
+  padding:7px 15px;
   border-radius:14px;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
   font-weight:600;
@@ -116,14 +118,16 @@ header{
   background:var(--card2);
   border-radius:999px;
   font-size:14px;
+  color: var(--text); /* 👈 CORRIGE O TEXTO INVISÍVEL */
 }
+
 
 /* ================== SECTIONS ================== */
 section{margin-top:90px}
 h2{font-size:36px;margin-bottom:10px}
 .subtitle{color:var(--muted);margin-bottom:34px}
 
-/* ================== PROJECTS ================== */
+/* ================== GRID ================== */
 .grid3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -140,6 +144,8 @@ h2{font-size:36px;margin-bottom:10px}
   transform:translateY(-8px);
   box-shadow:0 30px 60px rgba(0,0,0,.45);
 }
+
+/* ================== PROJECT ================== */
 .project a{
   display:inline-block;
   margin-top:12px;
@@ -147,56 +153,35 @@ h2{font-size:36px;margin-bottom:10px}
   font-weight:600;
 }
 
-/* ================== CERTIFICATES SLIDER ================== */
-.cert-slider{
-  overflow:hidden;
-  position:relative;
-}
-.cert-track{
+/* ================== CERTIFICATES (SLIDER) ================== */
+.gallery{
   display:flex;
-  transition:transform .6s ease;
+  gap:22px;
+  overflow:hidden;
 }
-.cert-card{
-  flex:0 0 25%;
-  padding:10px;
+
+.gallery-track{
+  display:flex;
+  gap:22px;
+  animation: slideCerts 30s linear infinite;
 }
-.cert-inner{
-  background:var(--card);
-  border:1px solid var(--border);
+
+.gallery-track img{
+  min-width:240px;
   border-radius:16px;
-  padding:12px;
+  border:1px solid var(--border);
   cursor:pointer;
   transition:.3s;
 }
-.cert-inner:hover{
-  transform:translateY(-6px);
-}
-.cert-inner img{
-  width:100%;
-  border-radius:12px;
+
+.gallery-track img:hover{
+  transform:scale(1.04);
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
 }
 
-/* ================== MODAL ================== */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  align-items:center;
-  justify-content:center;
-  z-index:50;
-}
-.modal img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:16px;
-}
-.modal span{
-  position:absolute;
-  top:20px;
-  right:30px;
-  font-size:40px;
-  cursor:pointer;
+@keyframes slideCerts{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
 }
 
 /* ================== SKILLS ================== */
@@ -224,7 +209,7 @@ input,textarea{
 }
 textarea{
   resize:none;
-  margin-top:14px;
+  margin-top:14px; /* 👈 ESPAÇAMENTO ENTRE NOME E MENSAGEM */
 }
 
 /* ================== FOOTER ================== */
@@ -239,7 +224,7 @@ footer{
 /* ================== RESPONSIVE ================== */
 @media(max-width:900px){
   .hero,.grid3,.contact{grid-template-columns:1fr}
-  .cert-card{flex:0 0 100%}
+  .hero h1{font-size:40px}
 }
 </style>
 </head>
@@ -265,65 +250,103 @@ footer{
 <section class="hero" id="sobre">
   <div>
     <h1>Desenvolvedor <span>Full Stack</span></h1>
-    <p>Desenvolvedor focado em sistemas web, automações e infraestrutura.</p>
+    <p>
+      Desenvolvedor focado em sistemas web, automações, dashboards e soluções
+      escaláveis.
+    </p>
     <div class="tags">
-      <span>Node.js</span><span>Express</span><span>MySQL</span>
-      <span>Linux</span><span>Nginx</span><span>GitHub</span>
+      <span>Node.js</span>
+      <span>Express</span>
+      <span>MySQL</span>
+      <span>Linux</span>
+      <span>Nginx</span>
+      <span>GitHub</span>
     </div>
   </div>
+
   <div class="heroCard">
+    <h3>👨‍💻 Perfil Profissional</h3>
     <p><b>Nome:</b> Lucas Ribeiro</p>
     <p><b>Área:</b> Desenvolvimento Web</p>
+    <p><b>Foco:</b> Sistemas, APIs e automações</p>
     <p><b>Local:</b> Brasil</p>
   </div>
 </section>
 
 <section id="projetos">
   <h2>Projetos</h2>
+  <p class="subtitle">Soluções desenvolvidas na prática</p>
+
   <div class="grid3">
-    <div class="card project"><h3>Controle de Estoque</h3></div>
-    <div class="card project"><h3>Chat Corporativo</h3></div>
-    <div class="card project"><h3>Gestão Operacional</h3></div>
+    <div class="card project">
+      <h3>📦 Controle de Estoque</h3>
+      <p>Sistema web com login, permissões e relatórios.</p>
+      <a href="#">Ver projeto</a>
+    </div>
+    <div class="card project">
+      <h3>💬 Chat Corporativo</h3>
+      <p>Chat interno por setores com abertura de chamados.</p>
+      <a href="#">Ver projeto</a>
+    </div>
+    <div class="card project">
+      <h3>🧾 Gestão Operacional</h3>
+      <p>Aplicação para controle de obras e serviços.</p>
+      <a href="#">Ver projeto</a>
+    </div>
   </div>
 </section>
 
 <section id="certificados">
   <h2>Certificados</h2>
-  <p class="subtitle">Cursos e formações</p>
+  <p class="subtitle">Cursos, formações e especializações</p>
 
-  <div class="cert-slider">
-    <div class="cert-track" id="certTrack">
-      <!-- REPITA quantos quiser -->
-      <div class="cert-card"><div class="cert-inner"><img src="certificados/arquivo1.jpg"></div></div>
-      <div class="cert-card"><div class="cert-inner"><img src="certificados/arquivo2.jpg"></div></div>
-      <div class="cert-card"><div class="cert-inner"><img src="certificados/arquivo3.jpg"></div></div>
-      <div class="cert-card"><div class="cert-inner"><img src="certificados/arquivo4.jpg"></div></div>
-      <div class="cert-card"><div class="cert-inner"><img src="certificados/arquivo5.jpg"></div></div>
-      <div class="cert-card"><div class="cert-inner"><img src="certificados/arquivo6.jpg"></div></div>
+  <div class="gallery">
+    <div class="gallery-track">
+      <img src="certificados/cert1.jpg">
+      <img src="certificados/cert2.jpg">
+      <img src="certificados/cert3.jpg">
+      <img src="certificados/cert4.jpg">
+      <img src="certificados/cert1.jpg">
+      <img src="certificados/cert2.jpg">
     </div>
   </div>
 </section>
 
 <section id="skills">
   <h2>Habilidades</h2>
+  <p class="subtitle">Tecnologias que utilizo</p>
+
   <div class="skills">
-    <span>JavaScript</span><span>Node.js</span><span>Linux</span>
-    <span>MySQL</span><span>Git</span>
+    <span>JavaScript</span>
+    <span>Node.js</span>
+    <span>Express</span>
+    <span>MySQL</span>
+    <span>PostgreSQL</span>
+    <span>Linux</span>
+    <span>Nginx</span>
+    <span>HTML5</span>
+    <span>CSS3</span>
+    <span>Git</span>
   </div>
 </section>
 
 <section id="contato">
   <h2>Contato</h2>
+  <p class="subtitle">Vamos conversar sobre seu projeto</p>
+
   <div class="contact">
     <div class="card">
-      <p>Email: lucasribeiro749@gmail.com</p>
-      <p>WhatsApp: 31 97588-4142</p>
+      <p><b>Email:</b> lucasribeiro749@gmail.com</p>
+      <p><b>WhatsApp:</b> (31) 97588-4142</p>
+      <p><b>GitHub:</b> github.com/Lucasra30</p>
+      <a class="btn" href="https://wa.me/31975884142" target="_blank">Chamar no WhatsApp</a>
     </div>
+
     <div class="card">
       <form onsubmit="enviarWhats(event)">
         <input id="nome" placeholder="Seu nome" required>
         <textarea id="mensagem" placeholder="Sua mensagem"></textarea>
-        <button class="btn">Enviar</button>
+        <button class="btn" type="submit">Enviar mensagem</button>
       </form>
     </div>
   </div>
@@ -331,41 +354,19 @@ footer{
 
 </main>
 
-<footer>© <span id="ano"></span> Lucas Ribeiro</footer>
-
-<div class="modal" id="modal">
-  <span onclick="closeModal()">×</span>
-  <img id="modalImg">
-</div>
+<footer>
+  © <span id="ano"></span> Lucas Ribeiro • Portfólio
+</footer>
 
 <script>
-document.getElementById("ano").innerText=new Date().getFullYear();
-
-document.querySelectorAll(".cert-inner img").forEach(img=>{
-  img.onclick=()=>openModal(img.src);
-});
-
-function openModal(src){
-  document.getElementById("modal").style.display="flex";
-  document.getElementById("modalImg").src=src;
-}
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-/* SLIDER */
-let index=0;
-const track=document.getElementById("certTrack");
-setInterval(()=>{
-  index=(index+1)%track.children.length;
-  track.style.transform=`translateX(-${index*25}%)`;
-},3000);
+document.getElementById("ano").innerText = new Date().getFullYear();
 
 function enviarWhats(e){
   e.preventDefault();
-  const nome=document.getElementById("nome").value;
-  const msg=document.getElementById("mensagem").value;
-  window.open(`https://wa.me/31975884142?text=${encodeURIComponent(nome+": "+msg)}`);
+  const nome = document.getElementById("nome").value;
+  const msg = document.getElementById("mensagem").value;
+  const texto = `Olá! Meu nome é ${nome}. ${msg}`;
+  window.open("https://wa.me/31975884142?text="+encodeURIComponent(texto));
 }
 </script>
 
